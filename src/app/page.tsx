@@ -1,5 +1,7 @@
 import React from 'react'
 import Hero from '../Compoents/Hero/Hero'
+import Qulifaction from '../Compoents/Qulifaction/page'
+import SkillShowcase from '@/Compoents/Skills/page'
 
 
 const page = () => {
@@ -7,6 +9,8 @@ const page = () => {
     <>
     
     <Hero/>
+    <Qulifaction/>
+    <SkillShowcase/>
     </>
   )
 }

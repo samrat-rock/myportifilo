@@ -10,13 +10,21 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { Typewriter } from "react-simple-typewriter";
+import { useScrollFadeIn } from "@/Hooks/useScrollFadeIn"; // adjust path if needed
 
 const Hero = () => {
+  const textAnimation = useScrollFadeIn("up", 0.7, 0);
+  const imageAnimation = useScrollFadeIn("up", 0.7, 0.2);
+
   return (
     <section className="px-6 py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white">
       <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
         {/* Text Content */}
-        <div className="text-center md:text-left">
+        <div
+          className="text-center md:text-left"
+          ref={textAnimation.ref}
+          style={textAnimation.style}
+        >
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             Hi, I'm Samrat Pandey
           </h1>
@@ -64,7 +72,6 @@ const Hero = () => {
             >
               <FontAwesomeIcon icon={faGithub} size="lg" />
             </a>
-
             <a
               href="https://linkedin.com/in/yourprofile"
               target="_blank"
@@ -83,7 +90,11 @@ const Hero = () => {
         </div>
 
         {/* Profile Image */}
-        <div className="w-48 h-48 relative rounded-full overflow-hidden border-4 border-yellow-400 shadow-lg">
+        <div
+          className="w-48 h-48 relative rounded-full overflow-hidden border-4 border-yellow-400 shadow-lg"
+          ref={imageAnimation.ref}
+          style={imageAnimation.style}
+        >
           <Image
             src="/profile.jpg"
             alt="Samrat Pandey"
