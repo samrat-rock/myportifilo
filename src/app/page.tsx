@@ -9,8 +9,7 @@ const page = () => {
     <>
     
     <Hero/>
-    <Qulifaction/>
-    <SkillShowcase/>
+    
     </>
   )
 }
