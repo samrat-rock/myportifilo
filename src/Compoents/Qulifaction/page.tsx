@@ -1,21 +1,32 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useScrollFadeIn } from "@/Hooks/useScrollFadeIn"; // adjust path as needed
+import { FaStar } from "react-icons/fa"; // Import star icon
 
 const AcademicDocument = () => {
+  const [hovered, setHovered] = useState(false);
   const bachelorAnim = useScrollFadeIn("up", 0.8, 0);
   const higherAnim = useScrollFadeIn("up", 0.8, 0.1);
   const schoolAnim = useScrollFadeIn("up", 0.8, 0.2);
 
   return (
     <section className="px-6 py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-yellow-400 mb-12 text-center">
-          Academic Background
-        </h2>
+      <div className="max-w-7xl mx-auto">
+        {/* Header with hover star */}
+        <div
+          className="flex items-center gap-2 mb-12"
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          <h2 className="text-3xl font-bold text-yellow-400">Academic Background</h2>
+          {hovered && (
+            <FaStar className="text-yellow-400 animate-bounce transition duration-300" />
+          )}
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* All cards in a single row on large screens */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Bachelor's Degree */}
           <div
             className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
@@ -52,7 +63,7 @@ const AcademicDocument = () => {
 
           {/* School */}
           <div
-            className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition md:col-span-2"
+            className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
             ref={schoolAnim.ref}
             style={schoolAnim.style}
           >
