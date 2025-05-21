@@ -24,16 +24,29 @@ const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => {
   );
 
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-64 text-center transition-all transform hover:bg-yellow-100 hover:shadow-xl hover:shadow-yellow-500 hover:-translate-y-2 hover:scale-105">
-      <h3 className="text-xl font-semibold mb-3">{skill.name}</h3>
-      <div className="text-yellow-500 text-2xl">
-        {ratingStars.map((star, index) => (
-          <span key={index}>{star}</span>
-        ))}
+    <div className="relative group overflow-hidden bg-slate-700 p-6 rounded-lg shadow-lg w-64 text-center transition-all transform hover:shadow-xl hover:shadow-white hover:-translate-y-2 hover:scale-105">
+      
+      {/* Expanding White Patch in Top-Left */}
+      <div className="absolute top-0 left-0 w-10 h-10 bg-white rounded-br-lg rounded-tl-lg transition-all duration-500 ease-in-out group-hover:w-full group-hover:h-full group-hover:rounded-lg z-0" />
+
+      {/* Content Layer */}
+      <div className="relative z-10 transition-colors duration-300 group-hover:text-slate-700 text-white">
+        <h3 className="text-xl font-semibold mb-3">{skill.name}</h3>
+        <div className="text-yellow-400 text-2xl flex justify-center gap-1">
+          {ratingStars.map((star, index) => (
+            <span
+              key={index}
+              className="group-hover:animate-pulse group-hover:brightness-125 transition duration-300"
+            >
+              {star}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
+
 
 const SkillShowcase: React.FC = () => {
   const [hovered, setHovered] = useState(false);
@@ -41,7 +54,7 @@ const SkillShowcase: React.FC = () => {
   return (
     <section className="px-6 py-20 bg-gradient-to-r from-slate-900 to-slate-800 text-white">
       <div className="max-w-6xl mx-auto">
-        {/* Text Content */}
+        
         <div
           className="flex items-center gap-2 mb-6"
           onMouseEnter={() => setHovered(true)}
