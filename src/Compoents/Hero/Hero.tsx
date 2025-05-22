@@ -11,6 +11,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Typewriter } from "react-simple-typewriter";
 import { useScrollFadeIn } from "@/Hooks/useScrollFadeIn"; 
+import Lottie from "lottie-react";
+import codingAnimation from "@/Compoents/animations/1fbcc26e-fabd-4fcc-a100-df0431f89f86.json";
+
 
 const Hero = () => {
   const textAnimation = useScrollFadeIn("up", 0.7, 0);
@@ -18,9 +21,13 @@ const Hero = () => {
 
   return (
     <section className="px-6 py-10 bg-gradient-to-r from-slate-900 to-slate-800 text-white">
-      <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+      <div className="max-w-5xl mx-auto \ flex flex-col-reverse md:flex-row items-center justify-between gap-10">
         
-        <div
+        
+
+
+      <div className="flex justify-between">
+      <div
           className="text-center md:text-left"
           ref={textAnimation.ref}
           style={textAnimation.style}
@@ -51,7 +58,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Link
               href="/resume.pdf"
-              className="bg-yellow-400 text-slate-900 font-semibold px-6 py-2 rounded-full hover:bg-yellow-300 transition"
+              className="bg-white text-slate-900 font-semibold px-6 py-2 rounded-full hover:bg-yellow-300 transition"
             >
               Download Resume
             </Link>
@@ -62,7 +69,7 @@ const Hero = () => {
               Contact Me
             </Link>
           </div>
-          <div className="flex gap-4 mt-6 justify-center md:justify-start">
+          <div className="flex gap-10 mt-6 justify-center md:justify-start ">
             <a
               href="https://github.com/samrat-rock"
               target="_blank"
@@ -70,38 +77,38 @@ const Hero = () => {
               aria-label="GitHub"
               className="hover:text-yellow-400 transition"
             >
-              <FontAwesomeIcon icon={faGithub} size="lg" />
+              <FontAwesomeIcon icon={faGithub} className="text-5xl" />
             </a>
             <a
               href="https://linkedin.com/in/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
+               className="hover:text-blue-400 transition"
             >
-              <FontAwesomeIcon icon={faLinkedin} size="lg" />
+              <FontAwesomeIcon icon={faLinkedin}  className="text-5xl" />
             </a>
             <a
               href="https://twitter.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
+               className="hover:text-blue-400 transition"
             >
-              <FontAwesomeIcon icon={faTwitter} size="lg" />
+              <FontAwesomeIcon icon={faTwitter}  className="text-5xl" />
             </a>
           </div>
         </div>
-
-        {/* Profile Image */}
-        <div
-          className="w-48 h-48 relative rounded-full overflow-hidden border-4 border-yellow-400 shadow-lg"
-          ref={imageAnimation.ref}
-          style={imageAnimation.style}
-        >
-          <Image
-            src="/profile.jpg"
-            alt="Samrat Pandey"
-            fill
-            className="object-cover"
-          />
-        </div>
+      <div
+  className="w-xl h-96 relative rounded-lg lg:pl-40    "
+  ref={imageAnimation.ref}
+  style={imageAnimation.style}
+>
+<Lottie
+    animationData={codingAnimation}
+    loop
+    className="object-cover w-full h-full"
+  />
+</div>
+      </div>
       </div>
     </section>
   );

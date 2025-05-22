@@ -31,7 +31,10 @@ const getStarIcons = (rating: number) => {
   return stars;
 };
 
-const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) => {
+const SkillCard: React.FC<{ skill: Skill; index: number }> = ({
+  skill,
+  index,
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -41,13 +44,20 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
     >
       <style jsx global>{`
         @keyframes gradientMove {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
         }
       `}</style>
+
       <div className="relative z-10">
-        <h3 
+        <h3
           className="text-xl font-semibold mb-3"
           style={{
             background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
@@ -55,7 +65,7 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             color: "transparent",
-            animation: "gradientMove 3s linear infinite"
+            animation: "gradientMove 3s linear infinite",
           }}
         >
           {skill.name}
@@ -71,22 +81,23 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
-                animation: "gradientMove 3s linear infinite"
+                animation: "gradientMove 3s linear infinite",
               }}
             >
               {star}
             </span>
           ))}
         </div>
-        {/* Progress Bar */}
-        <div className="w-full h-2 bg-slate-600 rounded-full mt-4">
+
+        <div className="w-full h-2 bg-slate-600 rounded-full mt-4 overflow-hidden relative">
           <div
-            className="h-full rounded-full transition-all duration-500"
+            className="h-full rounded-full absolute top-0 left-0"
             style={{
               width: `${(skill.rating / 5) * 100}%`,
               background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
               backgroundSize: "200% auto",
-              animation: "gradientMove 3s linear infinite"
+              backgroundPosition: "0% 50%",
+              animation: "gradientMove 3s linear infinite",
             }}
           />
         </div>
@@ -106,7 +117,7 @@ const SkillShowcase: React.FC = () => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <h1 
+          <h1
             className="text-4xl sm:text-5xl font-extrabold"
             style={{
               background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
@@ -114,7 +125,7 @@ const SkillShowcase: React.FC = () => {
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
               color: "transparent",
-              animation: "gradientMove 3s linear infinite"
+              animation: "gradientMove 3s linear infinite",
             }}
           >
             My Skills
@@ -127,7 +138,7 @@ const SkillShowcase: React.FC = () => {
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
-                animation: "gradientMove 3s linear infinite"
+                animation: "gradientMove 3s linear infinite",
               }}
             >
               <FaStar className="animate-bounce" />
@@ -135,7 +146,7 @@ const SkillShowcase: React.FC = () => {
           )}
         </div>
 
-        <p 
+        <p
           className="mb-12 max-w-xl leading-relaxed"
           style={{
             background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
@@ -143,11 +154,12 @@ const SkillShowcase: React.FC = () => {
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             color: "transparent",
-            animation: "gradientMove 3s linear infinite"
+            animation: "gradientMove 3s linear infinite",
           }}
         >
-          I build fast, responsive, and user-friendly web interfaces using React, Next.js,
-          and Tailwind CSS. I’m continuously improving and adapting to new technologies.
+          I build fast, responsive, and user-friendly web interfaces using
+          React, Next.js, and Tailwind CSS. I’m continuously improving and
+          adapting to new technologies.
         </p>
 
         <div className="flex flex-wrap justify-center gap-8">
