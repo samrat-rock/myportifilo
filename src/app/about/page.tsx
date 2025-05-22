@@ -23,12 +23,12 @@ const AboutMe = () => {
       className="relative h-screen w-full overflow-hidden" 
       onMouseMove={handleMouseMove}
     >
-      {/* Solar System Background with mouse position */}
+      
       <div className="absolute inset-0 z-0">
         <SolarSystem mousePosition={mousePosition} />
       </div>
 
-      {/* Content Overlay */}
+  
       <div className="relative z-10 h-full flex items-center justify-center">
         <div
           className="max-w-4xl mx-auto text-center p-6   rounded-xl"
@@ -37,7 +37,7 @@ const AboutMe = () => {
         >
           <h2 className="text-3xl font-bold text-yellow-400 mb-6">About Me</h2>
           <p className="text-slate-300 text-lg leading-relaxed">
-            I'm{" "}
+            I&apos;m{" "}
             <span className="text-yellow-300 font-semibold">Samrat Pandey</span>, 
             a passionate and self-motivated Front-End Developer...
           </p>

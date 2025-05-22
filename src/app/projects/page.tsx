@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 const projects = [
@@ -63,17 +64,20 @@ export default function ProjectsPage() {
               hover:scale-105
             "
           >
-            {/* Image */}
+        
             <div className="w-full h-40 mb-4 overflow-hidden rounded-md">
-              <img
+              <Image
                 src={image}
                 alt={name}
                 className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
                 loading="lazy"
+                width={400}
+                height={200}
+                style={{ borderRadius: "0.5rem" }} 
               />
             </div>
 
-            {/* Text */}
+      
             <h3 className="text-2xl font-semibold mb-2 text-yellow-300">{name}</h3>
             <p className="text-gray-300">{description}</p>
           </a>

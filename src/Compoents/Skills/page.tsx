@@ -16,9 +16,9 @@ const skills: Skill[] = [
   { name: "Tailwind CSS", rating: 4 },
   { name: "React", rating: 4 },
   { name: "Next.js", rating: 4.5 },
-  {name: "TypeScript", rating: 4 },
-  {name: "golang", rating: 3 },
-  {name:"postgreSQL", rating: 3 },
+  { name: "TypeScript", rating: 4 },
+  { name: "golang", rating: 3 },
+  { name: "postgreSQL", rating: 3 },
 ];
 
 const getStarIcons = (rating: number) => {
@@ -39,13 +39,40 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative overflow-hidden bg-slate-800 p-6 rounded-2xl shadow-xl w-64 text-center transition-all transform hover:scale-105 hover:ring-4 hover:ring-yellow-400"
     >
+      <style jsx global>{`
+        @keyframes gradientMove {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
       <div className="relative z-10">
-        <h3 className="text-xl font-semibold text-yellow-300 mb-3">{skill.name}</h3>
-        <div className="text-yellow-400 text-2xl flex justify-center gap-1">
+        <h3 
+          className="text-xl font-semibold mb-3"
+          style={{
+            background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
+            backgroundSize: "200% auto",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            color: "transparent",
+            animation: "gradientMove 3s linear infinite"
+          }}
+        >
+          {skill.name}
+        </h3>
+        <div className="text-2xl flex justify-center gap-1">
           {getStarIcons(skill.rating).map((star, idx) => (
             <span
               key={idx}
               className="group-hover:animate-pulse transition duration-300"
+              style={{
+                background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
+                backgroundSize: "200% auto",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                animation: "gradientMove 3s linear infinite"
+              }}
             >
               {star}
             </span>
@@ -54,8 +81,13 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
         {/* Progress Bar */}
         <div className="w-full h-2 bg-slate-600 rounded-full mt-4">
           <div
-            className="h-full bg-yellow-400 rounded-full transition-all duration-500"
-            style={{ width: `${(skill.rating / 5) * 100}%` }}
+            className="h-full rounded-full transition-all duration-500"
+            style={{
+              width: `${(skill.rating / 5) * 100}%`,
+              background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
+              backgroundSize: "200% auto",
+              animation: "gradientMove 3s linear infinite"
+            }}
           />
         </div>
       </div>
@@ -74,15 +106,46 @@ const SkillShowcase: React.FC = () => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 transition duration-300">
+          <h1 
+            className="text-4xl sm:text-5xl font-extrabold"
+            style={{
+              background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
+              backgroundSize: "200% auto",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+              animation: "gradientMove 3s linear infinite"
+            }}
+          >
             My Skills
           </h1>
           {hovered && (
-            <FaStar className="text-yellow-400 animate-bounce transition duration-300" />
+            <div
+              style={{
+                background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
+                backgroundSize: "200% auto",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                animation: "gradientMove 3s linear infinite"
+              }}
+            >
+              <FaStar className="animate-bounce" />
+            </div>
           )}
         </div>
 
-        <p className="text-slate-300 mb-12 max-w-xl leading-relaxed">
+        <p 
+          className="mb-12 max-w-xl leading-relaxed"
+          style={{
+            background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
+            backgroundSize: "200% auto",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            color: "transparent",
+            animation: "gradientMove 3s linear infinite"
+          }}
+        >
           I build fast, responsive, and user-friendly web interfaces using React, Next.js,
           and Tailwind CSS. I’m continuously improving and adapting to new technologies.
         </p>
