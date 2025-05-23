@@ -20,22 +20,22 @@ const Hero = () => {
   const imageAnimation = useScrollFadeIn("up", 0.7, 0.2);
 
   return (
-    <section className="px-6 py-10 bg-gradient-to-r from-slate-900 to-slate-800 text-white">
-      <div className="max-w-5xl mx-auto \ flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+    <section className="px-6 py-10 bg-[#f4f8ff] ">
+      <div className="max-w-7xl mx-auto">
         
         
 
 
-      <div className="flex justify-between">
+      <div className="md:flex justify-between ">
       <div
-          className="text-center md:text-left"
+          className="text-center md:text-left "
           ref={textAnimation.ref}
           style={textAnimation.style}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-slate-700">
             Hi&apos; I&apos;m Samrat Pandey
           </h1>
-          <h2 className="text-2xl text-yellow-400 mb-4">
+          <h2 className="text-2xl text-[#8b7cfa] mb-4">
             <Typewriter
               words={[
                 "Frontend Developer",
@@ -50,7 +50,7 @@ const Hero = () => {
               delaySpeed={1000}
             />
           </h2>
-          <p className="text-slate-300 mb-6 max-w-md">
+          <p className="text-slate-700 font-bold md:text-2xl mb-6 max-w-md">
             I build fast, responsive, and user-friendly web interfaces using
             React, Next.js, and Tailwind CSS. I love crafting delightful user
             experiences.
@@ -58,13 +58,13 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Link
               href="/resume.pdf"
-              className="bg-white text-slate-900 font-semibold px-6 py-2 rounded-full hover:bg-yellow-300 transition"
+              className="bg-[#8b7cfa]  font-semibold px-6 py-2 rounded-full hover:bg-[#5f55ac] text-white transition"
             >
               Download Resume
             </Link>
             <Link
               href="/contact"
-              className="border border-yellow-400 text-yellow-400 px-6 py-2 rounded-full hover:bg-yellow-400 hover:text-slate-900 transition"
+              className="border border-[#8b7cfa] text-[#8b7cfa] hover:bg-[#665cb4] hover:text-white font-bold px-6 py-2 rounded-full  transition"
             >
               Contact Me
             </Link>
@@ -75,7 +75,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="hover:text-yellow-400 transition"
+              className="hover:text-[#aba3e9] transition"
             >
               <FontAwesomeIcon icon={faGithub} className="text-5xl" />
             </a>
@@ -83,7 +83,7 @@ const Hero = () => {
               href="https://linkedin.com/in/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
-               className="hover:text-blue-400 transition"
+               className="hover:text-blue-500 text-blue-400 transition"
             >
               <FontAwesomeIcon icon={faLinkedin}  className="text-5xl" />
             </a>
@@ -91,14 +91,15 @@ const Hero = () => {
               href="https://twitter.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-               className="hover:text-blue-400 transition"
+               className="hover:text-blue-400 text-blue-600 transition"
             >
               <FontAwesomeIcon icon={faTwitter}  className="text-5xl" />
             </a>
           </div>
         </div>
+
       <div
-  className="w-xl h-96 relative rounded-lg lg:pl-40    "
+  className="md:w-xl md:h-full  rounded-lg md:pl-40    "
   ref={imageAnimation.ref}
   style={imageAnimation.style}
 >

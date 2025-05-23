@@ -30,12 +30,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 px-5 py-5 transition-transform duration-500 ease-in-out bg-slate-500 text-white shadow-lg   ${
+      className={`sticky top-0 z-50 px-5 py-5 transition-transform duration-500 ease-in-out shadow-lg bg-[#1E293B	]  ${
         navbarVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold text-white">Samrat Pandey</h3>
+      <div className="flex items-center justify-between font-serif">
+        <h3 className="text-2xl font-bold text-slate-800">Samrat Pandey</h3>
 
         
         <div className="md:hidden">
@@ -60,7 +60,7 @@ const Navbar = () => {
             key={label}
             href={href}
             onClick={handleLinkClick}
-            className="flex items-center md:px-5 gap-2 text-white lg:text-[#09122C] text-2xl font-bold transition hover:text-white hover:bg-slate-700 px-3 py-2 rounded-lg"
+            className="flex items-center md:px-5 gap-2  text-[#8ab9e7] text-2xl font-bold transition hover:text-white hover:bg-slate-700 px-3 py-2 rounded-lg"
           >
             <FontAwesomeIcon icon={icon} className="text-xl" />
             <span>{label}</span>
