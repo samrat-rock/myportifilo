@@ -60,7 +60,7 @@ const Navbar = () => {
             key={label}
             href={href}
             onClick={handleLinkClick}
-            className="flex items-center md:px-5 gap-2  text-[#8ab9e7] text-2xl font-bold transition hover:text-white hover:bg-slate-700 px-3 py-2 rounded-lg"
+            className="flex items-center md:px-5 gap-2  text-slate-500 text-2xl font-bold transition hover:text-white hover:bg-slate-700 px-3 py-2 rounded-lg"
           >
             <FontAwesomeIcon icon={icon} className="text-xl" />
             <span>{label}</span>

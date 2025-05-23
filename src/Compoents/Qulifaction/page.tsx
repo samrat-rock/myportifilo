@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { useScrollFadeIn } from "@/Hooks/useScrollFadeIn"; // adjust path as needed
-import { FaStar } from "react-icons/fa"; // Import star icon
+import { useScrollFadeIn } from "@/Hooks/useScrollFadeIn"; 
+import { FaStar } from "react-icons/fa"; 
 
 const AcademicDocument = () => {
   const [hovered, setHovered] = useState(false);
@@ -11,23 +11,23 @@ const AcademicDocument = () => {
   const schoolAnim = useScrollFadeIn("up", 0.8, 0.2);
 
   return (
-    <section className="px-6 py-20 bg-gradient-to-r from-slate-800 to-slate-700 text-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Header with hover star */}
+    <section className="md:px-32 md:flex items-center py-10 text-white  ">
+  <div className="max-w-8xl mx-auto">
+  
         <div
           className="flex items-center gap-2 mb-12"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <h2 className="text-3xl font-bold text-yellow-400">Academic Background</h2>
+          <h2 className="text-3xl font-bold text-slate-700">Academic Background</h2>
           {hovered && (
             <FaStar className="text-yellow-400 animate-bounce transition duration-300" />
           )}
         </div>
 
-        {/* All cards in a single row on large screens */}
+      
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Bachelor's Degree */}
+      
           <div
             className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
             ref={bachelorAnim.ref}
@@ -45,7 +45,7 @@ const AcademicDocument = () => {
             </p>
           </div>
 
-          {/* Higher Secondary */}
+      
           <div
             className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
             ref={higherAnim.ref}
@@ -61,7 +61,7 @@ const AcademicDocument = () => {
             </p>
           </div>
 
-          {/* School */}
+      
           <div
             className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
             ref={schoolAnim.ref}

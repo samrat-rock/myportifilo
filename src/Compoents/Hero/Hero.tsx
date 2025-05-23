@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <section className="px-6 py-10 bg-[#f4f8ff] ">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-20">
         
         
 
