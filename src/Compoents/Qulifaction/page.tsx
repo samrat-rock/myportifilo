@@ -11,8 +11,8 @@ const AcademicDocument = () => {
   const schoolAnim = useScrollFadeIn("up", 0.8, 0.2);
 
   return (
-    <section className="md:px-32 md:flex items-center py-10 text-white  ">
-  <div className="max-w-8xl mx-auto">
+    <section className="text-white px-20  ">
+  <div className="max-w-8xl mx-auto   py-20 md:px-20">
   
         <div
           className="flex items-center gap-2 mb-12"
@@ -29,14 +29,14 @@ const AcademicDocument = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       
           <div
-            className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
+            className=" rounded-lg p-6 border-l-4 border-[#144baa] shadow-xl hover:shadow-yellow-400 bg-[#0251da2a] transition"
             ref={bachelorAnim.ref}
             style={bachelorAnim.style}
           >
-            <h3 className="text-xl font-semibold mb-2 text-yellow-300">
+            <h3 className="text-xl font-semibold mb-2 text-slate-800">
               Bachelor’s Degree
             </h3>
-            <p className="text-slate-300">
+            <p className="text-slate-600">
               <strong>Program:</strong> BSc (Hons) Information Technology<br />
               <strong>University:</strong> University of Sunderland, UK<br />
               <strong>College:</strong> ISMT College, Kathmandu, Nepal<br />
@@ -47,14 +47,14 @@ const AcademicDocument = () => {
 
       
           <div
-            className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
+            className="rounded-lg p-6 border-l-4 border-[#144baa] shadow-xl hover:shadow-yellow-400 bg-[#0251da2a] transition"
             ref={higherAnim.ref}
             style={higherAnim.style}
           >
-            <h3 className="text-xl font-semibold mb-2 text-yellow-300">
+            <h3 className="text-xl font-semibold mb-2 text-slate-800">
               Higher Secondary Education (10+2)
             </h3>
-            <p className="text-slate-300">
+            <p className="text-slate-600">
               <strong>Board:</strong> CBSE, India<br />
               <strong>Stream:</strong> Science<br />
               <strong>Completed:</strong> 2016
@@ -63,14 +63,14 @@ const AcademicDocument = () => {
 
       
           <div
-            className="bg-slate-900 rounded-lg p-6 border-l-4 border-yellow-400 shadow-md hover:shadow-yellow-400 transition"
+            className="rounded-lg p-6 border-l-4 border-[#144baa] shadow-xl hover:shadow-yellow-400 bg-[#0251da2a] transition"
             ref={schoolAnim.ref}
             style={schoolAnim.style}
           >
-            <h3 className="text-xl font-semibold mb-2 text-yellow-300">
+            <h3 className="text-xl font-semibold mb-2 text-slate-800">
               School Education (10th Grade)
             </h3>
-            <p className="text-slate-300">
+            <p className="text-slate-600">
               <strong>Board:</strong> CBSE, India<br />
               <strong>Completed:</strong> 2014
             </p>

@@ -12,7 +12,7 @@ import {
 import { Typewriter } from "react-simple-typewriter";
 import { useScrollFadeIn } from "@/Hooks/useScrollFadeIn"; 
 import Lottie from "lottie-react";
-import codingAnimation from "@/Compoents/animations/1fbcc26e-fabd-4fcc-a100-df0431f89f86.json";
+import codingAnimation from "@/Compoents/gifComponets/heroanimation/animations/1fbcc26e-fabd-4fcc-a100-df0431f89f86.json";
 
 
 const Hero = () => {
