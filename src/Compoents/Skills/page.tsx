@@ -1,177 +1,127 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
-import { motion, useInView } from "framer-motion";
-import Lottie from "lottie-react";
-import htmlanimation from "@/Compoents/gifComponets/htmlGif/animations/4e8ab9b5-334a-4a3c-bf92-1a84c70b6549.json";
 
-  interface Skill {
-    name: string;
-    rating: number;
-    animation?: any;
+interface Skill {
+  name: string;
+  rating: number;
+}
+
+const getStarIcons = (rating: number, isHovered: boolean) => {
+  const stars = [];
+  for (let i = 1; i <= 5; i++) {
+    const delay = `${i * 100}ms`;
+    const starStyle = isHovered
+      ? `text-amber-400 opacity-0 animate-fade-in`
+      : `text-slate-700`;
+    const animationStyle = isHovered
+      ? { animationDelay: delay }
+      : {};
+    if (rating >= i)
+      stars.push(
+        <FaStar
+          key={i}
+          className={starStyle}
+          style={animationStyle}
+        />
+      );
+    else if (rating >= i - 0.5)
+      stars.push(
+        <FaStarHalfAlt
+          key={i}
+          className={starStyle}
+          style={animationStyle}
+        />
+      );
+    else
+      stars.push(
+        <FaRegStar
+          key={i}
+          className={starStyle}
+          style={animationStyle}
+        />
+      );
   }
+  return stars;
+};
 
-  const skills: Skill[] = [
-    { name: "HTML", rating: 5, animation: htmlanimation },
-    {name:"CSS", rating:5, animation:}
-    
-
-  ];
-
-
-  const getStarIcons = (rating: number) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      if (rating >= i) stars.push(<FaStar key={i} />);
-      else if (rating >= i - 0.5) stars.push(<FaStarHalfAlt key={i} />);
-      else stars.push(<FaRegStar key={i} />);
-    }
-    return stars;
-  };
-
- 
-
-const Skill: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) => {
-  const ref = useRef(null);
-  const lottieRef = useRef<any>(null);
-  const isInView = useInView(ref, { once: true });
-  const [isHovered, setIsHovered] = useState(false);
-  const direction = index % 2 === 0 ? -100 : 100;
+const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => {
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: direction }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeInOut", delay: index * 0.1 }}
-      className="group relative p-6 w-72 text-center rounded-2xl shadow-lg bg-slate-400 hover:bg-slate-500 transition-all duration-300 transform hover:scale-105"
-      onMouseEnter={() => {
-        setIsHovered(true);
-        if (lottieRef.current) {
-          lottieRef.current.play();
-        }
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        if (lottieRef.current) {
-          lottieRef.current.stop();
-          lottieRef.current.goToAndStop(0, true);
-        }
-      }}
+    <div
+      className={`w-72 h-32 text-center rounded-xl shadow-md flex flex-col items-center justify-center transform transition duration-300 hover:scale-105 
+        bg-slate-300 hover:bg-gradient-to-br hover:from-slate-500 hover:to-slate-700`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      {skill.animation && (
-        <div className="mb-4 h-32 flex items-center justify-center">
-          <div className={`rounded-full overflow-hidden p-2 bg-gradient-to-br from-amber-200 to-amber-500 shadow-lg transition-opacity duration-300 ${
-            isHovered ? 'opacity-100' : 'opacity-0'
-          }`}>
-            <Lottie
-              lottieRef={lottieRef}
-              animationData={skill.animation}
-              loop={false}
-              autoplay={false}
-              className="w-20 h-20"
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Rest of your component remains the same */}
-      <div className="relative z-10">
-        <h3
-          className="text-xl font-semibold mb-3"
-          style={{
-            background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
-            backgroundSize: "200% auto",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            color: "transparent",
-            animation: "gradientFlow 3s linear infinite",
-          }}
-        >
-          {skill.name}
-        </h3>
-        <div className="flex justify-center items-center gap-2 text-2xl mb-2">
-          {getStarIcons(skill.rating).map((star, idx) => (
-            <span
-              key={idx}
-              className="group-hover:animate-pulse transition duration-300" 
-              style={{
-                background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
-                backgroundSize: "200% auto",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                color: "transparent",
-                animation: "gradientFlow 3s linear infinite",
-              }}
-            >
-              {star}
-            </span>
-          ))}
-          <span className="text-base font-semibold text-slate-800 ml-2">
-            {skill.rating.toFixed(1)} / 5
-          </span>
-        </div>
-
-        <div className="w-full h-2 bg-slate-600 rounded-full mt-4 overflow-hidden relative">
-          <motion.div
-            className="h-full rounded-full absolute top-0 left-0"
-            style={{
-              width: `${(skill.rating / 5) * 100}%`,
-              background: "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)",
-              backgroundSize: "200% auto",
-            }}
-            animate={{
-              backgroundPositionX: ["0%", "200%"]
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 3,
-              ease: "linear",
-            }}
-          />
-        </div>
+      <h3
+        className={`text-xl font-bold mb-3 transition-colors duration-300 ${
+          hovered ? "text-blue-200" : "text-slate-800"
+        }`}
+      >
+        {skill.name}
+      </h3>
+      <div className="flex gap-1 text-2xl">
+        {getStarIcons(skill.rating, hovered)}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
-  const SkillShowcase: React.FC = () => {
-    const [hovered, setHovered] = useState(false);
 
-    return (
-      <section className="px-6 py-20 bg-[#a4b7d86e] text-white">
-        <div className="max-w-6xl mx-auto">
-          <div
-            className="flex items-center gap-3 mb-6"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-          >
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-700">
-              My Skills
-            </h1>
-            {hovered && (
-              <div style={{ animation: "gradientFlow 3s linear infinite" }}>
-                <FaStar className="animate-bounce" />
-              </div>
-            )}
-          </div>
+const SkillShowcase: React.FC = () => {
+  const skills: Skill[] = [
+    { name: "HTML", rating: 4.8 },
+    { name: "CSS", rating: 4.5 },
+    { name: "JavaScript", rating: 4.6 },
+    { name: "Tailwind CSS", rating: 4.7 },
+    { name: "Bootstrap", rating: 4.3 },
+    { name: "Ant Design", rating: 4.2 },
+    { name: "Material UI", rating: 4.4 },
+    { name: "Golang", rating: 3.5 },
+    { name: "Node.js", rating: 4.6 },
+    { name: "Docker", rating: 3.0},
+    { name: "CI/CD Pipelines", rating: 2.5 },
+  ];
 
-          <p className="mb-12 max-w-xl leading-relaxed text-slate-500">
-            I build fast, responsive, and user-friendly web interfaces using
-            React, Next.js, and Tailwind CSS. I’m continuously improving and
-            adapting to new technologies.
+  return (
+    <section className="px-6 py-20 bg-slate-100 text-slate-800">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-12 text-left">
+          <h1 className="text-4xl font-bold mb-4">My Skills</h1>
+          <p className="max-w-2xl text-slate-600">
+            I specialize in building interactive and scalable web applications using modern
+            front-end technologies like React, Next.js, Tailwind CSS, and backend with Node.js and Golang.
+            My skills span both design systems and development best practices including CI/CD and containerization.
           </p>
-
-          <div className="flex flex-wrap justify-center gap-8">
-            {skills.map((skill, index) => (
-              <Skill key={index} skill={skill} index={index} />
-            ))}
-          </div>
         </div>
-      </section>
-    );
-  };
 
-  export default SkillShowcase;
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+          {skills.map((skill, index) => (
+            <SkillCard key={index} skill={skill} />
+          ))}
+        </div>
+      </div>
+
+      <style jsx global>{`
+        @keyframes fade-in {
+          0% {
+            opacity: 0;
+            transform: scale(0.5);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.3s ease forwards;
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default SkillShowcase;
