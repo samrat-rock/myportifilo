@@ -1,8 +1,8 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from '../Compoents/Navbar/Navbar';
-import Footer from "@/Compoents/footer/footer";
+import ClientLayout from "@/Compoents/Clientlayout/client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
