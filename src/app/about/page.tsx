@@ -44,7 +44,7 @@ const AboutPage = () => {
             About Me
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-            I'm a passionate Front-End Developer with a love for clean UI, animation, and performance.
+            I&apos;m a passionate Front-End Developer with a love for clean UI, animation, and performance.
           </p>
         </motion.div>
 
@@ -56,13 +56,13 @@ const AboutPage = () => {
           className="bg-slate-800 p-6 rounded-2xl shadow-lg space-y-4 text-base leading-relaxed"
         >
           <p>
-            Hello! 👋 I'm <span className="font-semibold text-yellow-300">Samrat Pandey</span>, a Front-End Developer skilled in building modern web interfaces with <span className="text-cyan-300">React</span>, <span className="text-purple-300">Next.js</span>, and <span className="text-sky-300">Tailwind CSS</span>. 
+            Hello! 👋 I&apos;m <span className="font-semibold text-yellow-300">Samrat Pandey</span>, a Front-End Developer skilled in building modern web interfaces with <span className="text-cyan-300">React</span>, <span className="text-purple-300">Next.js</span>, and <span className="text-sky-300">Tailwind CSS</span>. 
           </p>
           <p>
             While my primary focus is on front-end, I also have foundational knowledge of <span className="text-green-300">GoLang</span>, <span className="text-blue-300">Docker</span>, and setting up basic <span className="text-orange-300">CI/CD pipelines</span> using GitLab and GitHub Actions.
           </p>
           <p>
-            I am a part-time space explorer and tech enthusiast. 🌌 I'm always curious to gain new tech information and explore the world of quantum computing. ⚛️
+            I am a part-time space explorer and tech enthusiast. 🌌 I&apos;m always curious to gain new tech information and explore the world of quantum computing. ⚛️
           </p>
         </motion.div>
 
@@ -122,7 +122,7 @@ const AboutPage = () => {
           transition={{ delay: 0.8, duration: 0.6 }}
           className="text-center text-slate-500 italic pt-10"
         >
-          "Design is not just what it looks like and feels like. Design is how it works." – Steve Jobs
+          &quot;Design is not just what it looks like and feels like. Design is how it works.&quot; – Steve Jobs
         </motion.div>
       </div>
     </div>

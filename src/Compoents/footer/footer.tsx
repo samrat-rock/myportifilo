@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="flex-1 space-y-6">
           <h2 className="text-3xl font-bold text-yellow-400">Samrat Pandey</h2>
           <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-            I'm a Front-End Developer focused on building visually appealing and performant UIs using React, Next.js, and Tailwind CSS. I also work with GoLang on the backend.
+            I&apos;m a Front-End Developer focused on building visually appealing and performant UIs using React, Next.js, and Tailwind CSS. I also work with GoLang on the backend.
           </p>
 
           
