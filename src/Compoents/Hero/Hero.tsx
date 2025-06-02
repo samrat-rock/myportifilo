@@ -34,7 +34,7 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-slate-700">
             Hi&apos; I&apos;m Samrat Pandey
           </h1>
-          <h2 className="text-2xl text-[#8b7cfa] mb-4">
+          <h2 className="text-2xl text-[#8b7cfa] mb-4 text-nowarp">
             <Typewriter
               words={[
                 "Frontend Developer",
