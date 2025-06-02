@@ -19,8 +19,8 @@ const Hero = () => {
   const imageAnimation = useScrollFadeIn("up", 0.7, 0.2);
 
   return (
-    <section className="px-6 py-10 bg-[#f4f8ff] ">
-      <div className="max-w-7xl mx-auto px-20">
+    <section className="md:px-6 py-10 bg-[#f4f8ff] ">
+      <div className="max-w-7xl mx-auto md:px-20">
         
         
 
@@ -31,43 +31,45 @@ const Hero = () => {
           ref={textAnimation.ref}
           style={textAnimation.style}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-slate-700">
+          <h1 className="text-2xl md:text-4xl font-bold mb-4 text-slate-700 text-nowrap" >
             Hi&apos; I&apos;m Samrat Pandey
           </h1>
-          <h2 className="text-2xl text-[#8b7cfa] mb-4 text-nowarp">
-            <Typewriter
-              words={[
-                "Frontend Developer",
-                "React Specialist",
-                "UI/UX Enthusiast",
-              ]}
-              loop={0}
-              cursor
-              cursorStyle="_"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1000}
-            />
-          </h2>
-          <p className="text-slate-700 font-bold md:text-2xl mb-6 max-w-md">
+         <h2 className="text-xl md:text-2xl text-[#8b7cfa] mb-4 whitespace-nowrap">
+  <Typewriter
+    words={[
+      "Frontend Developer",
+      "React Specialist",
+      "UI/UX Enthusiast",
+    ]}
+    loop={0}
+    cursor
+    cursorStyle="_"
+    typeSpeed={70}
+    deleteSpeed={50}
+    delaySpeed={1000}
+  />
+</h2>
+
+          <p className="text-slate-700 font-bold md:text-2xl mb-6 max-w-md px-5 text-justify md:text-left">
             I build fast, responsive, and user-friendly web interfaces using
             React, Next.js, and Tailwind CSS. I love crafting delightful user
             experiences.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-            <Link
-              href="/resume.pdf"
-              className="bg-[#8b7cfa]  font-semibold px-6 py-2 rounded-full hover:bg-[#5f55ac] text-white transition"
-            >
-              Download Resume
-            </Link>
-            <Link
-              href="/contact"
-              className="border border-[#8b7cfa] text-[#8b7cfa] hover:bg-[#665cb4] hover:text-white font-bold px-6 py-2 rounded-full  transition"
-            >
-              Contact Me
-            </Link>
-          </div>
+        <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start px-10 md:px-0">
+  <Link
+    href="/resume.pdf"
+    className="bg-[#8b7cfa] font-semibold px-6 py-2 rounded-full hover:bg-[#5f55ac] text-white transition"
+  >
+    Download Resume
+  </Link>
+  <Link
+    href="/contact"
+    className="border border-[#8b7cfa] text-[#8b7cfa] hover:bg-[#665cb4] hover:text-white font-bold px-6 py-2 rounded-full transition"
+  >
+    Contact Me
+  </Link>
+</div>
+
           <div className="flex gap-10 mt-6 justify-center md:justify-start ">
             <a
               href="https://github.com/samrat-rock"
@@ -98,7 +100,7 @@ const Hero = () => {
         </div>
 
       <div
-  className="md:w-xl md:h-full  rounded-lg md:pl-40    "
+  className="md:w-xl md:h-full  rounded-lg md:pl-40 px-10 md:px-0   "
   ref={imageAnimation.ref}
   style={imageAnimation.style}
 >

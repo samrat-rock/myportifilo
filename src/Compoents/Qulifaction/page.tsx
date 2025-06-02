@@ -10,7 +10,7 @@ const AcademicDocument = () => {
   const higherAnim = useScrollFadeIn("up", 0.8, 0.1);
 
   return (
-    <section className="text-white px-4 sm:px-10 lg:px-20">
+    <section className="text-white px-10 md:px-20">
       <div className="max-w-5xl mx-auto flex flex-col items-center justify-center py-20">
       
         <div
@@ -18,7 +18,7 @@ const AcademicDocument = () => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <h2 className="text-3xl font-bold text-slate-700 text-center">
+          <h2 className="text-3xl font-bold text-slate-700 text-center text-nowrap">
             Academic Background
           </h2>
           {hovered && (

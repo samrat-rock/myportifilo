@@ -52,17 +52,17 @@ const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => {
   return (
     <div
       className={`w-72 h-32 text-center rounded-xl shadow-md flex flex-col items-center justify-center transform transition duration-300 hover:scale-105 
-        bg-slate-300 hover:bg-gradient-to-br hover:from-slate-500 hover:to-slate-700`}
+        bg-slate-300 hover:bg-gradient-to-br hover:from-slate-500`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <h3
-        className={`text-xl font-bold mb-3 transition-colors duration-300 ${
-          hovered ? "text-blue-200" : "text-slate-800"
-        }`}
-      >
-        {skill.name}
-      </h3>
+     <h3
+  className={`text-xl font-bold mb-3 transition-colors duration-300 ${
+    hovered ? "text-slate-600" : "text-slate-800"
+  }`}
+>
+  {skill.name}
+</h3>
       <div className="flex gap-1 text-2xl">
         {getStarIcons(skill.rating, hovered)}
       </div>
@@ -89,9 +89,9 @@ const SkillShowcase: React.FC = () => {
   return (
     <section className="px-6 py-20 bg-slate-100 text-slate-800">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-left">
-          <h1 className="text-4xl font-bold mb-4">My Skills</h1>
-          <p className="max-w-2xl text-slate-600">
+        <div className="mb-12 text-center md:text-left">
+          <h1 className="text-4xl font-bold mb-4 ">My Skills</h1>
+          <p className="max-w-2xl text-slate-600 text-justify md:text-left px-5 md:px-0">
             I specialize in building interactive and scalable web applications using modern
             front-end technologies like React, Next.js, Tailwind CSS, and backend with Node.js and Golang.
             My skills span both design systems and development best practices including CI/CD and containerization.

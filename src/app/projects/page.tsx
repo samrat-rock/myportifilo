@@ -1,88 +1,91 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import { backendProjects, frontendProjects } from "@/Data/github";
 
-const projects = [
-  {
-    name: "Library Management",
-    url: "https://github.com/samrat-rock/librarymanagment",
-    description: "A system to manage books, members, and lending efficiently.",
-    about: `This project is a comprehensive Library Management System designed to automate book cataloging, track lending status, and manage user memberships. It implements core concepts such as database relationships for users, books, and transactions, ensuring real-time inventory and overdue tracking.`,
-    deeperConcept: `Key concepts include relational database design, CRUD operations, user authentication and authorization, and transaction management. It addresses concurrency in book lending and returns, and supports fine calculations for overdue books.`,
-    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    name: "Restaurant Management",
-    url: "https://github.com/samrat-rock/Restromanagement",
-    description: "Backend and frontend for restaurant order and staff management.",
-    about: `A full-stack solution tailored to streamline restaurant operations including table management, order tracking, and staff scheduling. It connects kitchen staff with waiters and manages order statuses in real-time.`,
-    deeperConcept: `Focuses on asynchronous data flow, real-time updates via websockets or polling, role-based access control for staff, and state management on frontend frameworks. Efficient UI/UX design ensures minimal delays in order processing.`,
-    image: "https://images.unsplash.com/photo-1555992336-03a23c2b17e2?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    name: "My Portfolio",
-    url: "https://github.com/samrat-rock/myportifilo",
-    description: "Personal portfolio website showcasing my skills and projects.",
-    about: `A personal portfolio website that highlights projects, skills, and experience. It features responsive design, smooth animations, and SEO optimization to effectively present a professional profile online.`,
-    deeperConcept: `Implements responsive web design principles using CSS frameworks like Tailwind CSS, performance optimization, accessibility standards, and deployment strategies. Focus on single-page app routing and smooth UI transitions.`,
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    name: "Edx",
-    url: "https://github.com/samrat-rock/edx",
-    description: "An educational platform for online courses and learning.",
-    about: `An e-learning platform supporting course creation, video lectures, quizzes, and student progress tracking. It enables scalable delivery of educational content across devices and supports instructor-student interactions.`,
-    deeperConcept: `Covers video streaming optimizations, secure user authentication, role-based content access, and scalable backend architecture. Uses database schemas optimized for course content, user progress, and assessments.`,
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    name: "Edxplor",
-    url: "https://github.com/samrat-rock/edxplor",
-    description: "A learning exploration tool built on top of Edx platform.",
-    about: `Edxplor extends the Edx platform by adding features such as personalized learning paths, resource recommendations, and analytics dashboards to help learners explore educational content more effectively.`,
-    deeperConcept: `Incorporates data analysis techniques for personalized recommendations, user engagement metrics, and adaptive learning algorithms. Focuses on integrating third-party APIs and enhancing UI with modern React components.`,
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-  },
-];
-
-export default function ProjectsPage() {
+const ProjectsPage = () => {
   return (
-    <main className="min-h-screen p-8 bg-slate-900 text-white">
-      <h2 className="text-4xl font-bold mb-10 text-yellow-400 text-center">My Projects</h2>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {projects.map(({ name, url, description, image }) => (
-          <a
-            key={name}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              relative block p-6 bg-slate-700 rounded-lg border border-transparent shadow-lg
-              transition-transform duration-300 ease-in-out
-              hover:scale-105
-            "
+    <section
+      className="min-h-screen bg-cover bg-center px-6 py-20 text-slate-300"
+      style={{ backgroundImage: "url('/projectbg.webp')" }}
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center backdrop-blur-sm bg-black/40 p-6 rounded-2xl">
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-        
-            <div className="w-full h-40 mb-4 overflow-hidden rounded-md">
-              <Image
-                src={image}
-                alt={name}
-                className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
-                loading="lazy"
-                width={400}
-                height={200}
-                style={{ borderRadius: "0.5rem" }} 
-              />
-            </div>
+            <h1 className="text-4xl font-bold mb-4 text-[#8b7cfa]">
+              Project Showcase
+            </h1>
+            <p className="text-slate-300 mb-10">
+              A curated list of my Frontend and Backend (GoLang) projects from GitHub.
+              Built with clean architecture, API integration, and modern UI principles.
+            </p>
+          </motion.div>
 
-      
-            <h3 className="text-2xl font-semibold mb-2 text-yellow-300">{name}</h3>
-            <p className="text-gray-300">{description}</p>
-          </a>
-        ))}
+          <div className="flex flex-col gap-6">
+            {[...frontendProjects, ...backendProjects].map((repo, index) => (
+              <motion.div
+                key={repo.name}
+                className="backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl p-6 rounded-2xl"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{
+                  scale: 1.03,
+                  rotate: [0, 1, -1, 1, -1, 0],
+                  transition: { duration: 0.3 },
+                }}
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <h2 className="text-xl font-semibold text-[#8b7cfa]">{repo.name}</h2>
+                  <span
+                    className={`text-xs font-medium px-2 py-1 rounded-full ${
+                      repo.language === "GoLang"
+                        ? "bg-blue-100 text-blue-800"
+                        : "bg-green-100 text-green-800"
+                    }`}
+                  >
+                    {repo.language === "GoLang" ? "Backend" : "Frontend"}
+                  </span>
+                </div>
+                <p className="text-sm text-slate-300 mb-3">{repo.description}</p>
+                <a
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-4 py-2 rounded-full text-white bg-[#8b7cfa] hover:bg-[#5f55ac] transition text-sm font-medium"
+                >
+                  View on GitHub
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="flex justify-center lg:justify-end"
+        >
+          <Image
+            src="https://cdn.pixabay.com/photo/2022/04/18/07/33/laptop-7138557_1280.png"
+            alt="Developer working"
+            width={500}
+            height={500}
+            className="rounded-xl shadow-lg"
+          />
+        </motion.div>
       </div>
-    </main>
+    </section>
   );
-}
+};
+
+export default ProjectsPage;
